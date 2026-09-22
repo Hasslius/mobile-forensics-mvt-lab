@@ -56,12 +56,14 @@ Debian 12 enforces PEP 668 to prevent external Python packages from corrupting s
 ```bash
 # Install core dependencies and ADB
 sudo apt update && sudo apt install -y python3-venv python3-pip adb libusb-1.0-0 libsqlite3-dev
-
+```
+```bash
 # Initialise workspace and virtual environment
 mkdir -p mobile-forensics-mvt-lab && cd mobile-forensics-mvt-lab
 python3 -m venv .venv
 source .venv/bin/activate
-
+```
+```bash
 # Install MVT inside virtual environment
 pip install --upgrade pip
 pip install mvt
@@ -93,10 +95,12 @@ Loaded STIX2 threat signatures curated by international human rights researchers
 ```bash
 # Download latest community and research IOCs
 mvt-android download-iocs
-
+```
+```bash
 # Run forensic analysis on the triage archive
 mvt-android check-androidqf --output ./output/reports/ ./output/triage/
-
+```
+```bash
 # Reconstruct and inspect telephony backup records
 mvt-android check-backup --output ./output/reports/ ./output/triage/backup.ab
 ```
