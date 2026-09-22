@@ -56,7 +56,7 @@ Modern Android forensic workflows utilise a two-stage approach to maintain evide
 ```
 
 ### Collection Strategy
-1. **Zero Root Footprint:** Commercial spyware detectors frequently require rooting the device, which irrevocably alters filesystem metadata and system integrity. Using `androidqf` allows evidence acquisition over the Android Debug Bridge (ADB) through existing developer interfaces.
+1. **ero Root Footprint:** Commercial spyware detectors frequently require rooting the device, which irrevocably alters filesystem metadata and system integrity. Using `androidqf` allows evidence acquisition over the Android Debug Bridge (ADB) through existing developer interfaces.
 2. **Offline Decoupled Analysis:** Forensic analysis is deliberately separated from the target hardware. All parsing, timeline reconstruction, and IOC matching occur on an isolated Linux workstation.
 
 ---
@@ -143,7 +143,7 @@ The automated scan generated **52 Medium alerts** and **764 Critical alerts**. I
 
 A junior analyst or automated system might immediately report this device as severely compromised. However, effective digital forensics requires understanding **why** a detection fired, examining the underlying artifact, and evaluating user intent.
 
-### Case 1: The 764 "Critical" Alerts — Stalkerware Feeds vs. Dual-Use Apps
+### Case 1: The 764 "Critical" Alerts - Stalkerware Feeds vs. Dual-Use Apps
 
 * **Flagged Entities:** 
   * Package: `com.life360.android.safetymapd` (Life360)
@@ -155,22 +155,22 @@ A junior analyst or automated system might immediately report this device as sev
   MVT matched these components across manifests, running tasks, and SMS circle invites, inflating the Critical alert count to 764. Because the device owner knowingly configured this application for family location sharing, this behavior matched legitimate business/personal logic.
 * **Disposition:** **Benign / Known Operational Dual-Use Tool.**
 
-### Case 2: Process Crashes (`tombstones`) — Exploitation vs. OEM Instability
+### Case 2: Process Crashes (`tombstones`) - Exploitation vs. OEM Instability
 
 * **Flagged Entities:** 32 native crash tombstones for process `qcc-vendor` (UID `1000`, Android System).
 * **Analytical Reasoning:** 
-  MVT monitors the `/data/tombstones` directory because zero-day exploit chains (such as remote zero-click exploits targeting media frameworks or baseband modems) often crash services while brute-forcing memory addresses or stabilizing heap allocations.
+  MVT monitors the `/data/tombstones` directory because ero-day exploit chains (such as remote ero-click exploits targeting media frameworks or baseband modems) often crash services while brute-forcing memory addresses or stabilising heap allocations.
 
-  Reviewing the tombstone dumps chronologically revealed that `qcc-vendor` (a proprietary Qualcomm wireless daemon) experienced periodic segmentation faults over an 18-month span, primarily around routine OS updates. The stack traces showed null-pointer dereferences consistent with unhandled hardware state changes rather than weaponized shellcode or memory manipulation.
+  Reviewing the tombstone dumps chronologically revealed that `qcc-vendor` (a proprietary Qualcomm wireless daemon) experienced periodic segmentation faults over an 18-month span, primarily around routine OS updates. The stack traces showed null-pointer dereferences consistent with unhandled hardware state changes rather than weaponised shellcode or memory manipulation.
 * **Disposition:** **Benign / Vendor Firmware Instability.**
 
-### Case 3: Partition Mount Heuristics — Rootkit Hunting vs. OEM Tuning
+### Case 3: Partition Mount Heuristics - Rootkit Hunting vs. OEM Tuning
 
 * **Flagged Entities:** Heuristic flags triggered on logical partitions (`/product/app`, `/product/lib64`, `/system_ext/...`) mounted with `noatime`.
 * **Analytical Reasoning:** 
   MVT inspects partition mount tables looking for partitions remounted as read-write (`rw`) or non-standard mount flags that indicate system tampering or runtime persistence mechanisms (like Magisk or custom recovery modifications). 
 
-  In this instance, the alert was triggered by `noatime` (which disables writing file last-access timestamps). Modern Android builds and vendor overlays like ColorOS deliberately use `noatime` on read-only system partitions to minimize redundant write cycles to flash memory and reduce I/O bottlenecks.
+  In this instance, the alert was triggered by `noatime` (which disables writing file last-access timestamps). Modern Android builds and vendor overlays like ColorOS deliberately use `noatime` on read-only system partitions to minimise redundant write cycles to flash memory and reduce I/O bottlenecks.
 * **Disposition:** **Benign / Normal OEM Filesystem Configuration.**
 
 ---
