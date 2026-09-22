@@ -150,7 +150,7 @@ A junior analyst or automated system might immediately report this device as sev
   * Artifact: Inbound SMS containing invitation domain `https://i.lf360.co/[REDACTED_TOKEN]`
 * **Trigger Feed:** AssoEchap Stalkerware Indicators (`generated_stalkerware.stix2`)
 * **Analytical Reasoning:** 
-  The AssoEchap repository catalogs stalkerware—surveillance tooling often installed without consent. To maintain wide coverage, threat feeds maintain signatures on *dual-use software*. Life360 features background location sharing, geofencing, dynamic telemetry broadcast receivers, and auto-start services—the exact technical primitives abused by commercial spyware. 
+  The AssoEchap repository catalogs stalkerware, surveillance tooling often installed without consent. To maintain wide coverage, threat feeds maintain signatures on *dual-use software*. Life360 features background location sharing, geofencing, dynamic telemetry broadcast receivers, and auto-start services, the exact technical primitives abused by commercial spyware. 
 
   MVT matched these components across manifests, running tasks, and SMS circle invites, inflating the Critical alert count to 764. Because the device owner knowingly configured this application for family location sharing, this behavior matched legitimate business/personal logic.
 * **Disposition:** **Benign / Known Operational Dual-Use Tool.**
