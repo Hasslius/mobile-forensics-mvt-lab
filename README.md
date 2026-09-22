@@ -56,19 +56,19 @@ Modern Android forensic workflows utilise a two-stage approach to maintain evide
 Debian 12 enforces PEP 668 to prevent external Python packages from corrupting system libraries. Tooling was isolated inside a virtual environment with required hardware abstraction libraries:
 
 
-1. **Install core dependencies and ADB**
+1.1 **Install core dependencies and ADB**
 ```bash
 sudo apt update && sudo apt install -y python3-venv python3-pip adb libusb-1.0-0 libsqlite3-dev
 ```
 
-2. **Initialise workspace and virtual environment**
+1.2 **Initialise workspace and virtual environment**
 ```bash
 mkdir -p mobile-forensics-mvt-lab && cd mobile-forensics-mvt-lab
 python3 -m venv .venv
 source .venv/bin/activate
 ```
 
-3. **Install MVT inside virtual environment**
+1.3 **Install MVT inside virtual environment**
 ```bash
 pip install --upgrade pip
 pip install mvt
@@ -97,16 +97,18 @@ chmod +x androidqf
 
 Loaded STIX2 threat signatures curated by international human rights researchers and parsed the acquired triage dump:
 
+5.1 **Download latest community and research IOCs**
 ```bash
-# Download latest community and research IOCs
 mvt-android download-iocs
 ```
+
+5.2 **Run forensic analysis on the triage archive**
 ```bash
-# Run forensic analysis on the triage archive
 mvt-android check-androidqf --output ./output/reports/ ./output/triage/
 ```
+
+5.3 **Reconstruct and inspect telephony backup records**
 ```bash
-# Reconstruct and inspect telephony backup records
 mvt-android check-backup --output ./output/reports/ ./output/triage/backup.ab
 ```
 ---
