@@ -55,18 +55,21 @@ Modern Android forensic workflows utilise a two-stage approach to maintain evide
 
 Debian 12 enforces PEP 668 to prevent external Python packages from corrupting system libraries. Tooling was isolated inside a virtual environment with required hardware abstraction libraries:
 
+
+1. **Install core dependencies and ADB**
 ```bash
-# Install core dependencies and ADB
 sudo apt update && sudo apt install -y python3-venv python3-pip adb libusb-1.0-0 libsqlite3-dev
 ```
+
+2. **Initialise workspace and virtual environment**
 ```bash
-# Initialise workspace and virtual environment
 mkdir -p mobile-forensics-mvt-lab && cd mobile-forensics-mvt-lab
 python3 -m venv .venv
 source .venv/bin/activate
 ```
+
+3. **Install MVT inside virtual environment**
 ```bash
-# Install MVT inside virtual environment
 pip install --upgrade pip
 pip install mvt
 ```
