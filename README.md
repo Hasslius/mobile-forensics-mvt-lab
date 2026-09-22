@@ -156,5 +156,7 @@ The automated scan generated **52 Medium alerts** and **764 Critical alerts**. I
 ## 5. Security Takeaways & Post-Analysis Hygiene
 
 1. **Context Informs Severity:** Security tools identify observables, not human intent. An analyst must cross-reference IOC alerts against user authorisation and software function before escalating to an incident.
+  
 2. **Attack Surface Reduction:** Following evidence collection, USB Debugging and Developer Options were immediately disabled on the device to eliminate unauthorised ADB access vectors.
+   
 3. **Evidence Isolation & Data Privacy:** All raw forensic dumps (telephony databases, system logs, dumpsys output) were deleted from the local analysis workstation to prevent storing sensitive personal information (PII) once reporting concluded.
