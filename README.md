@@ -47,6 +47,8 @@ Modern Android forensic workflows utilise a two-stage approach to maintain evide
                                              - Detections & Alerts
                                              - Triage & Verdict
 ```
+---
+
 ## 3. Implementation Workflow
 
 ### Phase 1: Environment Setup (Debian 12)
