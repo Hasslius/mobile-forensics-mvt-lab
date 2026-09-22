@@ -13,7 +13,7 @@ A digital forensics and incident response (DFIR) case study documenting evidence
 * **Threat Feeds:** STIX2 Indicators of Compromise (Amnesty International, Citizen Lab, AssoEchap)
 
 ### Purpose
-Establish a repeatable, non-invasive digital forensics pipeline capable of identifying advanced persistent threats (such as Pegasus, Predator, and commercial spyware) while performing root-cause analysis on heuristic false positives and dual-use tracker alerts.
+Establish a repeatable, non-invasive digital forensics tool capable of identifying advanced persistent threats (such as Pegasus, Predator, and commercial spyware) while performing root-cause analysis on heuristic false positives and dual-use tracker alerts.
 
 ---
 
@@ -54,7 +54,7 @@ Modern Android forensic workflows utilise a two-stage approach to maintain evide
 
 ### Phase 1: Environment Setup (Debian 12)
 
-Debian 12 enforces PEP 668 to prevent external Python packages from corrupting system libraries. Tooling was isolated inside a virtual environment with required hardware abstraction libraries:
+Debian 12 enforces PEP 668 to prevent external Python packages from corrupting system libraries. Tooling was isolated inside a virtual environment in VS Code (venv) with required hardware abstraction libraries:
 
 
 1.1 **Install core dependencies and ADB**
