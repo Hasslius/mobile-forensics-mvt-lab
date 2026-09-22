@@ -21,8 +21,8 @@ Establish a repeatable, non-invasive digital forensics pipeline capable of ident
 
 Modern Android forensic workflows utilise a two-stage approach to maintain evidence integrity without rooting the target device:
 
-1. **Acquisition (`androidqf`):** Deployed over an authenticated Android Debug Bridge (ADB) session to pull system properties, running services, crash dumps, and telephony backups into an isolated triage directory.
-2. **Analysis (`mvt-android`):** An offline forensic engine that unpacks extracted databases, reconstructs SMS communication records, and evaluates package signatures against STIX2 threat intelligence feeds.
+2.1 **Acquisition (`androidqf`):** Deployed over an authenticated Android Debug Bridge (ADB) session to pull system properties, running services, crash dumps, and telephony backups into an isolated triage directory.
+2.2 **Analysis (`mvt-android`):** An offline forensic engine that unpacks extracted databases, reconstructs SMS communication records, and evaluates package signatures against STIX2 threat intelligence feeds.
 
 ```text
 +-------------------+       ADB (USB)       +-----------------------+
