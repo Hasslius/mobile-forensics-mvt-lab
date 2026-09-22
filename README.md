@@ -77,38 +77,40 @@ pip install mvt
 
 ### Phase 2: Device Authorisation & Evidence Extraction
 
-1. Enabled Developer Options and USB Debugging within ColorOS settings.
-2. Connected the device over USB (File Transfer / MTP mode) and authorised the Debian host's RSA fingerprint prompt.
-3. Acquired the standalone `androidqf` Linux x86_64 binary and set execution permissions:
+2.1 Enabled Developer Options and USB Debugging within ColorOS settings.
+
+2.2 Connected the device over USB (File Transfer / MTP mode) and authorised the Debian host's RSA fingerprint prompt.
+
+2.3 Acquired the standalone `androidqf` Linux x86_64 binary and set execution permissions:
 
 ```bash
 wget https://github.com/mvt-project/androidqf/releases/download/v1.8.3/androidqf_linux_amd64_1.8.3 -O androidqf
 chmod +x androidqf
 ```
 
-4. Initiated live non-invasive acquisition targeting telephony databases, running processes, and diagnostic dumps:
+2.4 Initiated live non-invasive acquisition targeting telephony databases, running processes, and diagnostic dumps:
 
 ```bash
 ./androidqf -output ./output/triage
 ```
 
-5. Confirmed the unencrypted system backup request on the physical device screen to extract the SMS/MMS SQLite store (`com.android.providers.telephony`).
+2.5 Confirmed the unencrypted system backup request on the physical device screen to extract the SMS/MMS SQLite store (`com.android.providers.telephony`).
 
 ### Phase 3: Threat Intelligence Ingestion & Forensic Parsing
 
 Loaded STIX2 threat signatures curated by international human rights researchers and parsed the acquired triage dump:
 
-5.1 **Download latest community and research IOCs**
+3.1 **Download latest community and research IOCs**
 ```bash
 mvt-android download-iocs
 ```
 
-5.2 **Run forensic analysis on the triage archive**
+3.2 **Run forensic analysis on the triage archive**
 ```bash
 mvt-android check-androidqf --output ./output/reports/ ./output/triage/
 ```
 
-5.3 **Reconstruct and inspect telephony backup records**
+3.3 **Reconstruct and inspect telephony backup records**
 ```bash
 mvt-android check-backup --output ./output/reports/ ./output/triage/backup.ab
 ```
