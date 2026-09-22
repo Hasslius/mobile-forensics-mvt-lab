@@ -74,7 +74,7 @@ pip install mvt
 3. Acquired the standalone `androidqf` Linux x86_64 binary and set execution permissions:
 
 ```bash
-wget [https://github.com/mvt-project/androidqf/releases/download/v1.8.3/androidqf_linux_amd64_1.8.3](https://github.com/mvt-project/androidqf/releases/download/v1.8.3/androidqf_linux_amd64_1.8.3) -O androidqf
+wget https://github.com/mvt-project/androidqf/releases/download/v1.8.3/androidqf_linux_amd64_1.8.3 -O androidqf
 chmod +x androidqf
 ```
 
