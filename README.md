@@ -77,24 +77,24 @@ pip install mvt
 
 ### Phase 2: Device Authorisation & Evidence Extraction
 
-2.1 **Enabled Developer Options and USB Debugging within ColorOS settings.**
+2.1 Enabled Developer Options and USB Debugging within ColorOS settings.
 
-2.2 **Connected the device over USB (File Transfer / MTP mode) and authorised the Debian host's RSA fingerprint prompt.**
+2.2 Connected the device over USB (File Transfer / MTP mode) and authorised the Debian host's RSA fingerprint prompt.
 
-2.3 **Acquired the standalone `androidqf` Linux x86_64 binary and set execution permissions:**
+2.3 Acquired the standalone `androidqf` Linux x86_64 binary and set execution permissions:
 
 ```bash
 wget https://github.com/mvt-project/androidqf/releases/download/v1.8.3/androidqf_linux_amd64_1.8.3 -O androidqf
 chmod +x androidqf
 ```
 
-2.4 **Initiated live non-invasive acquisition targeting telephony databases, running processes, and diagnostic dumps:**
+2.4 Initiated live non-invasive acquisition targeting telephony databases, running processes, and diagnostic dumps:
 
 ```bash
 ./androidqf -output ./output/triage
 ```
 
-2.5 **Confirmed the unencrypted system backup request on the physical device screen to extract the SMS/MMS SQLite store (`com.android.providers.telephony`).**
+2.5 Confirmed the unencrypted system backup request on the physical device screen to extract the SMS/MMS SQLite store (`com.android.providers.telephony`).
 
 ### Phase 3: Threat Intelligence Ingestion & Forensic Parsing
 
