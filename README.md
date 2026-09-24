@@ -16,7 +16,7 @@ This project documents non-invasive evidence acquisition, offline artifact parsi
 
 ### Threat Landscape
 
-Targeted mobile intrusions, such as those delivered via NSO Group's Pegasus, Intellexa's Predator, or commercial stalkerware—rarely leave obvious visual traces on modern mobile operating systems. Because Android enforces strict application sandboxing and SELinux policies, an analyst cannot simply install an antivirus APK on the target device to find advanced threats. 
+Targeted mobile intrusions, such as those delivered via NSO Group's Pegasus, Intellexa's Predator, or commercial stalkerware, rarely leave obvious visual traces on modern mobile operating systems. Because Android enforces strict application sandboxing and SELinux policies, an analyst cannot simply install an antivirus APK on the target device to find advanced threats. 
 
 Instead, an investigation requires collecting volatile state data, native crash logs, partition mount configurations, and telephony databases from outside the running OS, evaluating these forensic artifacts against known indicators of compromise (IOCs).
 
@@ -56,7 +56,7 @@ Modern Android forensic workflows utilise a two-stage approach to maintain evide
 ```
 
 ### Collection Strategy
-1. **ero Root Footprint:** Commercial spyware detectors frequently require rooting the device, which irrevocably alters filesystem metadata and system integrity. Using `androidqf` allows evidence acquisition over the Android Debug Bridge (ADB) through existing developer interfaces.
+1. **Zero Root Footprint:** Commercial spyware detectors frequently require rooting the device, which irrevocably alters filesystem metadata and system integrity. Using `androidqf` allows evidence acquisition over the Android Debug Bridge (ADB) through existing developer interfaces.
 2. **Offline Decoupled Analysis:** Forensic analysis is deliberately separated from the target hardware. All parsing, timeline reconstruction, and IOC matching occur on an isolated Linux workstation.
 
 ---
